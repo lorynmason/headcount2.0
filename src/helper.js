@@ -26,9 +26,15 @@ export default class DistrictRepository {
   }
 
   findAllMatches = (search) => {
+    let keys = Object.keys(this.stats)
     if(!search) {
-      return
+      return keys
+    } else {
+      return keys.filter(currentElement => {
+        if(currentElement.includes(search.toUpperCase())) {
+          return currentElement
+        }
+      })
     }
   }
-
 }
