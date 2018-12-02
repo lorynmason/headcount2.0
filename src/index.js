@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import './index.css';
+import './styles/main.scss';
+// import './index.css';
 
 import App from './App';
 

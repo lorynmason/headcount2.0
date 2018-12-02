@@ -11,9 +11,9 @@ export default class DistrictRepository {
       } else {
         value = 0 
       }
-    
       obj[upperLoc].stats = {...obj[upperLoc].stats, [currentElement.TimeFrame] : value};
       obj[upperLoc].location = upperLoc;
+      obj[upperLoc].selected = false
       return obj;
     },{})
   }
@@ -26,9 +26,32 @@ export default class DistrictRepository {
   }
 
   findAllMatches = (search) => {
+    let keys = Object.keys(this.stats)
     if(!search) {
-      return
+      return keys
+    } else {
+      return keys.filter(currentElement => {
+        return currentElement.includes(search.toUpperCase())
+      })
     }
   }
+  
+  findAverage = (location) => {
+    const values = Object.values(this.stats[location.toUpperCase()].stats)
+    const average = values.reduce((sum, value) => {
+      sum += value
+      return sum
+    },0)/values.length
+    return Math.round(1000*average)/1000
+  }
 
+  compareDistrictAverages = (loc1, loc2) => {
+    const avr1 = this.findAverage(loc1)
+    const avr2 = this.findAverage(loc2)
+    const result = {}
+    result[loc1.toUpperCase()]= avr1
+    result[loc2.toUpperCase()]= avr2 
+    result.compared = Math.round(1000*avr1/avr2)/1000
+    return result
+  }
 }
