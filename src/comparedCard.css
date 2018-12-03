@@ -1,0 +1,52 @@
+.comparedCard {
+  height: 328px;
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comparedCard button {
+  width: 40px;
+  height: 30px;
+  margin: 10px 10px 20px;
+  display: block;
+  font-size: 1.1em;
+  background: #2e2d2d;
+  color: whitesmoke;
+  border: none;
+  box-shadow: 1px 1px 2px #000;
+  align-self: flex-end;
+  outline: none;
+}
+
+.comparedCard h3 {
+  font-size: 1.5em;
+  margin-top: 5px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border: #fff solid 1px;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #0387a8;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  top: 15px;
+  left: 30px;
+  opacity: .9;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  border: #2e2d2d solid 1px;
+}

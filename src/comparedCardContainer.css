@@ -1,0 +1,11 @@
+.comparedCardContainer {
+  width: 100%;
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 400px);
+  grid-gap: 15px 15px;
+  justify-content: space-around;
+  grid-auto-flow: dense;
+  margin: 0 auto;
+  padding-top: 20px;
+}
