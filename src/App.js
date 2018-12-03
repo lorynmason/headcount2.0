@@ -37,7 +37,19 @@ class App extends Component {
 
   displaySelected = (clickedCard) => {
     const districtRepository = new DistrictRepository(data)
-    const clickedCompare = districtRepository.findByName(clickedCard.location)
+    let clickedCompare = districtRepository.findByName(clickedCard.location)
+    if(clickedCard === this.state.compared1){
+      this.setState({
+        compared1: null
+      })
+      clickedCompare = null
+    } 
+    if(clickedCard === this.state.compared2) {
+      this.setState({
+        compared2: null
+      })
+      clickedCompare = null
+    }
     if(!this.state.compared1){
       this.setState({
         compared1: clickedCompare
