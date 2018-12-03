@@ -1,9 +1,6 @@
 import ComparisonCard from '../../../src/ComparisonCard.js';
-import ComparedContainer from '../../../src/ComparedContainer.js';
 import {shallow, mount} from 'enzyme';
 import React from 'react';
-import ReactDOM from 'react-dom';
-
 
 describe('ComparedCard', () => {
   let wrapper;
