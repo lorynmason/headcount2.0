@@ -80,9 +80,13 @@ describe('CardContainer iteration 2', () => {
     }}, 
   ];
 
+  const appState = {
+    data: mockData2
+  }
+
   it('should match the snapshot with all data passed in correctly', () => {
-    const wrapper = mount(
-      <CardContainer data={mockData2}/>
+    const wrapper = shallow(
+      <CardContainer appState={appState}/>
     ); 
     expect(wrapper).toMatchSnapshot()
   })

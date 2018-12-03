@@ -2,11 +2,19 @@ import ComparisonCard from '../../../src/ComparisonCard.js';
 import ComparedContainer from '../../../src/ComparedContainer.js';
 import {shallow, mount} from 'enzyme';
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 
 describe('ComparedCard', () => {
-  it('should match the snapshot with all data passed  in correctly', () => {
-    const card1 = {
+  let wrapper;
+  let card1;
+  let card2;
+  let card3;
+  let init;
+  let resetComparison;
+  beforeEach(() => {
+    resetComparison = jest.fn()
+    card1 = {
       location: "ADAMS COUNTY 14",
       selected: false,
       stats:
@@ -22,7 +30,7 @@ describe('ComparedCard', () => {
       2013: 0.998,
       2014: 1}
       }
-      const card2 = {
+      card2 = {
         location: "ADAMS COUNTY 14",
         selected: false,
         stats:
@@ -38,20 +46,33 @@ describe('ComparedCard', () => {
         2013: 0.998,
         2014: 1}
         }
-        const card3 = {'ADAMS COUNTY 14': 0.709,
+        card3 = {'ADAMS COUNTY 14': 0.709,
         COLORADO: 0.53,
         compared: 0.748}
         
-        const init = {
+        init = {
           compared1: card1,
           compared2: card2,
           compareCard: card3
         }
 
-    const wrapper = shallow(
-      <ComparisonCard appState={init}/>
+    wrapper = shallow(
+      <ComparisonCard appState={init} resetComparison={resetComparison}/>
     ); 
 
+  })
+  it('should match the snapshot with all data passed  in correctly', () => {
+    
     expect(wrapper).toMatchSnapshot();
+  })
+
+  it('should call resetComparison on button click', () => {
+    const button = wrapper.find('button')
+    
+
+    button.simulate('click')
+
+    expect(resetComparison).toHaveBeenCalled()
+
   })
 })

@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './Card.js';
 import './cardContainer.css';
+import PropTypes from 'prop-types'
 
 const CardContainer = ({appState, displaySelected}) => {
   const Cards = Object.keys(appState.data).map(stat => {
@@ -21,6 +22,11 @@ const CardContainer = ({appState, displaySelected}) => {
       { Cards }
     </div>
   )
+}
+
+CardContainer.propTypes = {
+  appState: PropTypes.object.isRequired,
+  displaySelected: PropTypes.func
 }
 
 export default CardContainer

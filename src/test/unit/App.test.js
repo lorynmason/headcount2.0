@@ -1,8 +1,8 @@
 import React from 'react';
-import App from './App';
+import App from '../../App';
 import { shallow } from 'enzyme';
-import data from './data/kindergartners_in_full_day_program.js';
-import DistrictRepository from './helper.js';
+import data from '../../data/kindergartners_in_full_day_program.js';
+import DistrictRepository from '../../helper.js';
 
 describe('App', () => {
   let wrapper;
@@ -19,7 +19,6 @@ describe('App', () => {
     const initialState = {data: {
       'ACADEMY 20': {
       location: "ACADEMY 20",
-      selected: false,
       stats:
       {2012: 0.479,
       2013: 0.488,
@@ -28,7 +27,6 @@ describe('App', () => {
     }, 
       'ADAMS COUNTY 14': {
       location: "ADAMS COUNTY 14",
-      selected: false,
       stats:
       {2012: 0.479,
       2013: 0.488,
@@ -36,7 +34,6 @@ describe('App', () => {
       }, 
       'COLORADO': {
         location: "COLORADO",
-        selected: false,
         stats:
         {2012: 0.479,
         2013: 0.488,
@@ -47,7 +44,6 @@ describe('App', () => {
       
     const expected = {'ADAMS COUNTY 14': {
       location: "ADAMS COUNTY 14",
-      selected: false,
       stats:
       {2004: 0.228,
       2005: 0.3,
@@ -75,7 +71,6 @@ describe('displaySelected', () => {
     const initialState = null
     const expected = {
       location: "ADAMS COUNTY 14",
-      selected: false,
       stats:
       {2004: 0.228,
       2005: 0.3,
