@@ -28,7 +28,7 @@ const Card = ({cardInfo, className, displaySelected }) => {
 }
 
 Card.propTypes = {
-  cardInfo: PropTypes.object,
+  cardInfo: PropTypes.object.isRequired,
   displaySelected: PropTypes.func,
   className: PropTypes.string
 }
