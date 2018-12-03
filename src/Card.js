@@ -1,17 +1,11 @@
 import React from 'react'
+import './cards.css'
 
 const Card = (props) => {
-  let classBorder = 'cards'
   const stats = Object.keys(props.cardInfo.stats).map(stat => {
     let classString = 'green';
     if(props.cardInfo.stats[stat] < 0.5) {
       classString = 'red'
-    }
-    if(props.cardInfo.selected === true) {
-      classBorder = 'cards clickedcard'
-    }
-    if(props.cardInfo.selected === false) {
-      classBorder = 'cards'
     }
   
     return <li key={stat} 
@@ -21,7 +15,7 @@ const Card = (props) => {
   })
 
   return (
-  <div className={classBorder} onClick={() => props.displaySelected(props.cardInfo)}>
+  <div className={props.className || 'cards clickedcard'} onClick={() => props.displaySelected(props.cardInfo)}>
     <h1>
      { props.cardInfo.location } 
     </h1>

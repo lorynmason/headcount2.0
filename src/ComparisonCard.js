@@ -1,4 +1,5 @@
 import React from 'react'
+import './comparedCard.css'
 
 const ComparisonCard = ({appState, resetComparison}) => {
   const comparedAvg = Object.keys(appState.compareCard)
