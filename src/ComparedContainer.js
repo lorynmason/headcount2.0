@@ -1,8 +1,8 @@
 import React from 'react';
 import Card from './Card.js';
-import ComparisonCard from './ComparisonCard.js'
-import './comparedCardContainer.css'
-
+import ComparisonCard from './ComparisonCard.js';
+import './comparedCardContainer.css';
+import PropTypes from 'prop-types';
 
 const ComparedContainer = ({appState, resetComparison, displaySelected}) => {
   let card1;
@@ -29,6 +29,12 @@ const ComparedContainer = ({appState, resetComparison, displaySelected}) => {
     <div>{card2}</div>
     </div>
   )
+}
+
+ComparedContainer.propTypes = {
+  appState: PropTypes.object,
+  displaySelected: PropTypes.func,
+  resetComparison: PropTypes.func
 }
 
 export default ComparedContainer

@@ -1,29 +1,36 @@
 import React from 'react'
 import './cards.css'
+import PropTypes from 'prop-types'
 
-const Card = (props) => {
-  const stats = Object.keys(props.cardInfo.stats).map(stat => {
+const Card = ({cardInfo, className, displaySelected }) => {
+  const stats = Object.keys(cardInfo.stats).map(stat => {
     let classString = 'green';
-    if(props.cardInfo.stats[stat] < 0.5) {
+    if(cardInfo.stats[stat] < 0.5) {
       classString = 'red'
     }
   
     return <li key={stat} 
                className={classString}>
-      {stat}: {props.cardInfo.stats[stat]}
+      {stat}: {cardInfo.stats[stat]}
     </li>
   })
 
   return (
-  <div className={props.className || 'cards clickedcard'} onClick={() => props.displaySelected(props.cardInfo)}>
+  <div className={className || 'cards clickedcard'} onClick={() => displaySelected(cardInfo)}>
     <h1>
-     { props.cardInfo.location } 
+     { cardInfo.location } 
     </h1>
     <p>
       { stats }
     </p>
   </div>
 )
+}
+
+Card.propTypes = {
+  cardInfo: PropTypes.object,
+  displaySelected: PropTypes.func,
+  className: PropTypes.string
 }
   
 export default Card

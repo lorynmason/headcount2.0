@@ -1,5 +1,6 @@
-import React from 'react'
-import './comparedCard.css'
+import React from 'react';
+import './comparedCard.css';
+import PropTypes from 'prop-types';
 
 const ComparisonCard = ({appState, resetComparison}) => {
   const comparedAvg = Object.keys(appState.compareCard)
@@ -22,6 +23,11 @@ const ComparisonCard = ({appState, resetComparison}) => {
     </h3>
   </div>
 )
+}
+
+ComparisonCard.propTypes = {
+  appState: PropTypes.object,
+  resetComparison: PropTypes.func
 }
   
 export default ComparisonCard
