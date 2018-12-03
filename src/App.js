@@ -42,7 +42,6 @@ class App extends Component {
       this.setState({
         compared1: null
       })
-      clickedCompare = null
     } 
     if(clickedCard === this.state.compared2) {
       this.setState({
