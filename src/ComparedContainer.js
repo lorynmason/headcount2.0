@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card.js';
-import './styles/main.scss';
 import ComparisonCard from './ComparisonCard.js'
+import './comparedCardContainer.css'
 
 
 const ComparedContainer = ({appState, resetComparison, displaySelected}) => {
